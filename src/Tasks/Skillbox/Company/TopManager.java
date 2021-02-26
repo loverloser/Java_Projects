@@ -10,7 +10,11 @@ public class TopManager implements Employee{
 
     @Override
     public int getMonthSalary() {
-        return  FIX_SALARY + company.getIncome() > 10_000_000 ? (int) (FIX_SALARY * 1.5) : 0;
+        if(company.getIncome() > 10_000_000){
+            int result = (int) (FIX_SALARY * 1.5);
+            return FIX_SALARY + result;
+        }
+            return  FIX_SALARY;
     }
 
     @Override
