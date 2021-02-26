@@ -1,10 +1,15 @@
 package Tasks.Skillbox.Company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
     private int income;
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
+
+    public Company() {
+        this.income = (int) (Math.random() * 2_000_000) + 500_000;
+    }
 
     public void hire(Employee employee){
         employees.add(employee);
@@ -22,9 +27,6 @@ public class Company {
         return income;
     }
 
-    public void setIncome(int income) {
-        this.income = income;
-    }
 
     public List<Employee> getEmployees() {
         return employees;
