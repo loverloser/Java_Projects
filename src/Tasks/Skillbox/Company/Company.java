@@ -1,18 +1,27 @@
 package Tasks.Skillbox.Company;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Company {
     private int income;
     private List<Employee> employees = new ArrayList<>();
+    private int countEmployees;
 
     public Company() {
         this.income = (int) (Math.random() * 2_000_000) + 500_000;
     }
 
+    public int getCountEmployees() {
+        return countEmployees;
+    }
+
+    public void setCountEmployees(int countEmployees) {
+        this.countEmployees = countEmployees;
+    }
+
     public void hire(Employee employee){
         employees.add(employee);
+        countEmployees++;
     }
 
     public void hireAll(List<Employee> employees){
@@ -23,9 +32,30 @@ public class Company {
         employees.remove(employee);
     }
 
+    private List<Employee> getFilteredLimitedList(int count, Comparator<Employee> comparator) {
+        List<Employee> copyList = new ArrayList<>(employees);
+        copyList.sort(comparator);
+        List<Employee> result = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            result.add(copyList.get(i));
+        }
+        return result;
+    }
+
+
+    public List<Employee> getTopSalaryStaff(int count) {
+        return getFilteredLimitedList(count, (o1, o2) -> o2.getMonthSalary() - o1.getMonthSalary());
+    }
+
+    public List<Employee> getLowestSalaryStaff(int count) {
+        return getFilteredLimitedList(count, Comparator.comparingInt(Employee::getMonthSalary));
+    }
+
     public int getIncome() {
         return income;
     }
+
+
 
 
     public List<Employee> getEmployees() {
