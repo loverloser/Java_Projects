@@ -30,6 +30,7 @@ public class Company {
 
     public void fire(Employee employee){
         employees.remove(employee);
+        countEmployees--;
     }
 
     private List<Employee> getFilteredLimitedList(int count, Comparator<Employee> comparator) {

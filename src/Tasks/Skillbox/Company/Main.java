@@ -12,36 +12,36 @@ public class Main<TODO> {
             Manager manager = new Manager();
             company.hire(manager);
         }
+
         for (int i = 0; i < 10; i++) {
             company.hire(new TopManager(company));
         }
+
         System.out.println("Добавлено сотрудников: " + company.getCountEmployees());
-
-//        fireHalfEmployees(company);
-
-
 
         System.out.println(company.getTopSalaryStaff(10));
         System.out.println(company.getLowestSalaryStaff(10));
+
+        fireHalfEmployees(company);
     }
 
-//    public static void fireE(Company company){
-//        int countOfEmployees = company.getCountEmployees();
-//        for (int i = 0; i < countOfEmployees / 2; i++) {
-//            int index = (int) (Math.random() * company.getCountEmployees());
-//            company.fire(company.getEmployees().get(index));
-//        }
-//    }
+    public static void fireE(Company company){
+        int countOfEmployees = company.getCountEmployees();
+        for (int i = 0; i < countOfEmployees / 2; i++) {
+            int index = (int) (Math.random() * company.getCountEmployees());
+            company.fire(company.getEmployees().get(index));
+        }
+    }
 
-//    private static void fireHalfEmployees(Company company) {
-//        int countEmployees = company.getCountEmployees();
-//        for (int i = 0; i < countEmployees / 2; i++) {
-//            int index = (int) (Math.random() * company.getCountEmployees());
-//            Employee loser = company.getEmployees().get(index);
-//            company.fire(loser);
-//        }
-//        System.out.println("Уволено " + countEmployees / 2 + " сотрудников");
-//    }
+    private static void fireHalfEmployees(Company company) {
+        int countEmployees = company.getCountEmployees();
+        for (int i = 0; i < countEmployees / 2; i++) {
+            int index = (int) (Math.random() * company.getCountEmployees());
+            Employee loser = company.getEmployees().get(index);
+            company.fire(loser);
+        }
+        System.out.println("Уволено " + countEmployees / 2 + " сотрудников");
+    }
 }
 
 
