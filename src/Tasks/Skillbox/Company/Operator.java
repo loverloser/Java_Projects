@@ -1,13 +1,11 @@
 package Tasks.Skillbox.Company;
 
-public class Operator implements Employee{
+public class Operator implements Employee {
     private final int FIX_SALARY = 40_000;
     private String post;
-    private String name;
 
-    public Operator(String name) {
-        this.post = "operator";
-        this.name = name;
+    public Operator() {
+        this.post = "Operator";
     }
 
     @Override
@@ -17,22 +15,18 @@ public class Operator implements Employee{
 
     @Override
     public String toString() {
-        return this.getMonthSalary() + " " + this.getName();
+        return "Operator{" +
+                "salary= " + getMonthSalary() +
+                ", post='" + post + '\'' +
+                '}';
     }
 
+    @Override
     public String getPost() {
         return post;
     }
 
     public void setPost(String post) {
         this.post = post;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

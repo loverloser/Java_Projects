@@ -2,7 +2,7 @@ package Tasks.Skillbox.Company;
 
 import java.util.*;
 
-public class Company{
+public class Company {
     private int income;
     private List<Employee> employees = new ArrayList<>();
     private int countEmployees;
@@ -19,16 +19,16 @@ public class Company{
         this.countEmployees = countEmployees;
     }
 
-    public void hire(Employee employee){
+    public void hire(Employee employee) {
         employees.add(employee);
         countEmployees++;
     }
 
-    public void hireAll(List<Employee> employees){
+    public void hireAll(List<Employee> employees) {
         this.employees.addAll(employees);
     }
 
-    public void fire(Employee employee){
+    public void fire(Employee employee) {
         employees.remove(employee);
         countEmployees--;
     }
@@ -51,12 +51,22 @@ public class Company{
         return getFilteredLimitedList(count, Comparator.comparingInt(Employee::getMonthSalary));
     }
 
-//    public List<Employee> getTopSalaryAndPost(int count) {
-//        return ff(count, CompareBySalaryAndPost);
-//    }
+    public List<Employee> getTopSalaryAndPost(int count) {
+        return getFilteredLimitedList(count, (o1, o2) -> {
+            int flag = o2.getMonthSalary() - o1.getMonthSalary();
+            if (flag == 0) {
+                flag = o1.getPost().compareTo(o2.getPost());
+            }
+            return flag;
+        });
+    }
 
     public int getIncome() {
         return income;
+    }
+
+    public void setIncome(int income) {
+        this.income = income;
     }
 
     public List<Employee> getEmployees() {
@@ -65,16 +75,6 @@ public class Company{
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
-    }
-
-    public List<Employee> ff(int count, Comparator<Employee> comparator) {
-        List<Employee> copyList = new ArrayList<>(employees);
-        copyList.sort(comparator);
-        List<Employee> result = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            result.add(copyList.get(i));
-        }
-        return result;
     }
 
 }

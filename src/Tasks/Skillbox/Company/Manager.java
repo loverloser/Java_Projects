@@ -6,12 +6,10 @@ public class Manager implements Employee {
     private Company company;
     private final int FIX_SALARY = 50_000;
     private String post;
-    private String name;
 
-    public Manager(String name) {
+    public Manager() {
         this.profit = (int) (Math.random() * 140_000) + 115_000;
-        this.post = "manager";
-        this.name = name;
+        this.post = "Manager";
     }
 
     @Override
@@ -36,16 +34,25 @@ public class Manager implements Employee {
         this.profit = profit;
     }
 
+    public int getFIX_SALARY() {
+        return FIX_SALARY;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "Salary=" + getMonthSalary() +
+                ", post='" + post + '\'' +
+                '}';
+    }
+
+    @Override
     public String getPost() {
         return post;
     }
 
     public void setPost(String post) {
         this.post = post;
-    }
-
-    @Override
-    public String toString() {
-        return this.getMonthSalary() + "";
     }
 }
