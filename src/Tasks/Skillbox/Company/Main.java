@@ -1,28 +1,23 @@
 package Tasks.Skillbox.Company;
 
-public class Main<TODO> {
+public class Main {
     public static void main(String[] args) {
         Company company = new Company();
-        for (int i = 0; i < 180; i++) {
-            Operator operator = new Operator();
-            company.hire(operator);
-        }
+        //add employees
+//        addEmployees(company);
+//        System.out.println(company.getTopSalaryStaff(10));
+//        System.out.println(company.getLowestSalaryStaff(10));
+        //fire 50% employees
+//        fireHalfEmployees(company);
+        company.hire(new Operator("Tom"));
+        company.hire(new Operator("Bob"));
+        company.hire(new Operator("Fie"));
+        company.hire(new Operator("Tim"));
+        company.hire(new Operator("Joe"));
+        company.hire(new Operator("Martin"));
 
-        for (int i = 0; i < 80; i++) {
-            Manager manager = new Manager();
-            company.hire(manager);
-        }
+//        System.out.println(company.getTopSalaryAndPost(6));
 
-        for (int i = 0; i < 10; i++) {
-            company.hire(new TopManager(company));
-        }
-
-        System.out.println("Добавлено сотрудников: " + company.getCountEmployees());
-
-        System.out.println(company.getTopSalaryStaff(10));
-        System.out.println(company.getLowestSalaryStaff(10));
-
-        fireHalfEmployees(company);
     }
 
     public static void fireE(Company company){
@@ -42,6 +37,24 @@ public class Main<TODO> {
         }
         System.out.println("Уволено " + countEmployees / 2 + " сотрудников");
     }
+
+//    public static void addEmployees(Company company){
+//        for (int i = 0; i < 180; i++) {
+//            Operator operator = new Operator();
+//            company.hire(operator);
+//        }
+//
+//        for (int i = 0; i < 80; i++) {
+//            Manager manager = new Manager();
+//            company.hire(manager);
+//        }
+//
+//        for (int i = 0; i < 10; i++) {
+//            company.hire(new TopManager(company));
+//        }
+//
+//        System.out.println("Добавлено сотрудников: " + company.getCountEmployees());
+//    }
 }
 
 

@@ -2,7 +2,7 @@ package Tasks.Skillbox.Company;
 
 import java.util.*;
 
-public class Company {
+public class Company{
     private int income;
     private List<Employee> employees = new ArrayList<>();
     private int countEmployees;
@@ -43,7 +43,6 @@ public class Company {
         return result;
     }
 
-
     public List<Employee> getTopSalaryStaff(int count) {
         return getFilteredLimitedList(count, (o1, o2) -> o2.getMonthSalary() - o1.getMonthSalary());
     }
@@ -52,12 +51,13 @@ public class Company {
         return getFilteredLimitedList(count, Comparator.comparingInt(Employee::getMonthSalary));
     }
 
+//    public List<Employee> getTopSalaryAndPost(int count) {
+//        return ff(count, CompareBySalaryAndPost);
+//    }
+
     public int getIncome() {
         return income;
     }
-
-
-
 
     public List<Employee> getEmployees() {
         return employees;
@@ -66,4 +66,15 @@ public class Company {
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
+
+    public List<Employee> ff(int count, Comparator<Employee> comparator) {
+        List<Employee> copyList = new ArrayList<>(employees);
+        copyList.sort(comparator);
+        List<Employee> result = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            result.add(copyList.get(i));
+        }
+        return result;
+    }
+
 }
