@@ -44,5 +44,3 @@ public class Main {
         System.out.println("Добавлено сотрудников: " + company.getCountEmployees());
     }
 }
-
-
