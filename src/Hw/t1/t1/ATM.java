@@ -1,4 +1,4 @@
-package Hw.t1;
+package Hw.t1.t1;
 
 public class ATM {
     private int money;
