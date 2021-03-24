@@ -1,14 +1,13 @@
 package Tasks.Skillbox.Company;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
     private int income;
-    private List<Employee> employees = new ArrayList<>();
+    private List<Employee> employees;
 
     public void hire(Employee employee){
-        this.employees.add(employee);
+        employees.add(employee);
     }
 
     public void hireAll(List<Employee> employees){
