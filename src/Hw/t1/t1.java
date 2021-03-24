@@ -1,8 +1,7 @@
-package Hw;
+package Hw.t1;
 
-public class Main {
+public class t1 {
     public static void main(String[] args) {
-        
-    }
 
+    }
 }
