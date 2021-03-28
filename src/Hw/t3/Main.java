@@ -1,4 +1,4 @@
-package Hw.t1.t3;
+package Hw.t3;
 
 import jdk.swing.interop.SwingInterOpUtils;
 

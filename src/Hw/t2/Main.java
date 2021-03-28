@@ -1,4 +1,4 @@
-package Hw.t1.t2;
+package Hw.t2;
 
 import java.util.ArrayList;
 import java.util.List;

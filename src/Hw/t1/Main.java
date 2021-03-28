@@ -1,4 +1,4 @@
-package Hw.t1.t1;
+package Hw.t1;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException{
