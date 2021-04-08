@@ -1,4 +1,4 @@
-package Hw.t4;
+package Hw.multithreaiding.t4;
 
 public class MFU {
     private static final Object LOCK1 = new Object();

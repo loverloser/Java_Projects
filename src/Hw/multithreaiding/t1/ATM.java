@@ -1,4 +1,4 @@
-package Hw.t1;
+package Hw.multithreaiding.t1;
 
 public class ATM {
     private int money;

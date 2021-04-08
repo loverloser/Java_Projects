@@ -1,4 +1,4 @@
-package Hw.t1;
+package Hw.multithreaiding.t1;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException{

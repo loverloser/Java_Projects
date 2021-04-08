@@ -1,6 +1,4 @@
-package Hw.t3;
-
-import jdk.swing.interop.SwingInterOpUtils;
+package Hw.multithreaiding.t3;
 
 public class Main {
     private static final Object LOCK = new Object();
