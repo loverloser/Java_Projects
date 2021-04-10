@@ -25,4 +25,9 @@ public class Basket <T extends Fruit> {
     public int compare(Basket<?> anotherBox){
         return Double.compare(this.getWeight(), anotherBox.getWeight());
     }
+
+    public static <U extends Fruit> void transfer(Basket<? extends U> src, Basket<? super U> dist){
+        dist.storage.addAll(src.storage);
+        src.storage.clear();
+    }
 }

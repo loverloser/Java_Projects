@@ -1,6 +1,6 @@
 package Hw.Generics;
 
-public class Fruit {
+public abstract class Fruit {
     private double weight;
 
     public double getWeight() {
