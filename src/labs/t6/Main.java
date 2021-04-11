@@ -9,10 +9,18 @@ public class Main {
                 {2, 3, 4, 0, 4},
                 {1, 2, 3, 4, 0},
         };
-        symmetricMatrix(matrix);
+        double[][] matrix1 = {
+                {0.0, 4.0, 3.0, 2.0, 1.0},
+                {4.0, 0.0, 4.0, 3.0, 2.0},
+                {3.0, 4.0, 0.0, 4.0, 3.0},
+                {2.0, 3.0, 4.0, 0.0, 4.0},
+                {1.0, 2.0, 3.0, 4.0, 0.0},
+        };
+        task1(matrix);
+        task2(matrix1);
     }
 
-    private static void symmetricMatrix(int[][] matrix){
+    private static void task1(int[][] matrix){
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 if(i == j){
@@ -26,6 +34,19 @@ public class Main {
             }
         }
         System.out.println("Матрица семмитрична");
+    }
+
+    private static void task2(double [][] matrix){
+        double max = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if(matrix[i][j] > max){
+                    max = matrix[i][j];
+                }
+            }
+        }
+        matrix[0][0] = max;
+        System.out.println(matrix[0][0]);
     }
 
 }
