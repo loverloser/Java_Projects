@@ -38,10 +38,10 @@ public class Main {
 
     private static void task2(double [][] matrix){
         double max = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if(matrix[i][j] > max){
-                    max = matrix[i][j];
+        for (double[] doubles : matrix) {
+            for (double aDouble : doubles) {
+                if (aDouble > max) {
+                    max = aDouble;
                 }
             }
         }
