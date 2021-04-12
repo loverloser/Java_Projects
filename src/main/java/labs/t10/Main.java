@@ -7,18 +7,25 @@ import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        //firstTask();
-        //secondTask();
-        thirdTask();
+    public static void main(String[] args){
+        Main main = new Main();
+        firstTask();
+        System.out.println(main.secondTask());
+        try {
+            System.out.println(main.thirdTask());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private static void firstTask() {
         double result = 0;
         int countOfLines = 0;
+        Scanner sc = null;
         try {
-            File file = new File("C:\\Java projects\\src\\labs\\t10\\test1.txt");
-            Scanner sc = new Scanner(file);
+            File file = new File("C:\\Java projects\\src\\main\\java\\labs\\t10\\test1.txt");
+            sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] lines = line.split(" ");
@@ -34,17 +41,21 @@ public class Main {
             sc.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }finally {
+            assert sc != null;
+            sc.close();
         }
 
     }
 
-    private static void secondTask() {
+    public int secondTask() {
+        Scanner sc = null;
         try {
             double avg;
             double sum = 0;
             int result = 0;
-            File file = new File("C:\\Java projects\\src\\labs\\t10\\test2.txt");
-            Scanner sc = new Scanner(file);
+            File file = new File("C:\\Java projects\\src\\main\\java\\labs\\t10\\test2.txt");
+            sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String[] strArr = sc.nextLine().split(" ");
                 for (String value : strArr) {
@@ -58,54 +69,69 @@ public class Main {
                 }
             }
 
-            System.out.println(result);
-            sc.close();
+            return result;
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            assert sc != null;
+            sc.close();
         }
+        return 0;
     }
 
-    private static void thirdTask() {
+    public int thirdTask() throws IOException {
         try {
+            Map<Character, Integer> res = new HashMap<>();
+            fillTheMap(res);
             List<Character> abc = new ArrayList<>(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'));
-            File file = new File("C:\\Java projects\\src\\labs\\t10\\test3.txt");
+            File file = new File("C:\\Java projects\\src\\main\\java\\labs\\t10\\test3.txt");
+
             FileWriter fw = new FileWriter(file);
             Random random = new Random();
             for (int i = 0; i < 1024; i++) {
                 fw.write(abc.get(random.nextInt(8)));
             }
             fw.close();
-            Map<Character, Integer> res = new HashMap<>();
-            res.put('a', 1);
-            res.put('b', 1);
-            res.put('c', 1);
-            res.put('d', 1);
-            res.put('e', 1);
-            res.put('f', 1);
-            res.put('g', 1);
-            res.put('h', 1);
+
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 int value = 1;
                 char[] charArr = line.toCharArray();
                 for (int i = 0; i < charArr.length - 1; i++) {
-                    if (abc.contains(charArr[i]) && charArr[i] == charArr[i + 1] && res.get(charArr[i]) >= value) {
+                    if (charArr[i] == charArr[i + 1]) {
                         value++;
-                        res.put(charArr[i], value);
-                    } else value = 1;
+                        if (res.get(charArr[i]) <= value) {
+                            res.put(charArr[i], value);
+                        }
+                    } else {
+                        value = 1;
+                    }
                 }
-            }
-            int result = 0;
-            for (Map.Entry<Character, Integer> entry : res.entrySet()) {
-                if(entry.getValue() >= result){
-                    result = entry.getValue();
-                }
-            }
-            System.out.println(result);
 
-        } catch (Exception e) {
+                int result = 0;
+                for (Map.Entry<Character, Integer> entry : res.entrySet()) {
+                    if (entry.getValue() >= result) {
+                        result = entry.getValue();
+                    }
+                }
+                return result;
+            }
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        return 0;
+    }
+    public static void fillTheMap(Map<Character, Integer> res){
+        res.put('a', 0);
+        res.put('b', 0);
+        res.put('c', 0);
+        res.put('d', 0);
+        res.put('e', 0);
+        res.put('f', 0);
+        res.put('g', 0);
+        res.put('h', 0);
     }
 }
