@@ -68,33 +68,43 @@ public class Main {
     private static void thirdTask() {
         try {
             List<Character> abc = new ArrayList<>(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'));
-            File file = new File("C:\\Java projects\\src\\labs\\t10\\qwer.txt");
+            File file = new File("C:\\Java projects\\src\\labs\\t10\\test3.txt");
             FileWriter fw = new FileWriter(file);
             Random random = new Random();
             for (int i = 0; i < 1024; i++) {
-                fw.write(abc.get(random.nextInt(8)) + " ");
+                fw.write(abc.get(random.nextInt(8)));
             }
+            fw.close();
             Map<Character, Integer> res = new HashMap<>();
-//
-//            Scanner sc = new Scanner(file);
-//            while (sc.hasNextLine()) {
-//                String line = sc.nextLine();
-//                int value = 0;
-//                char[] charArr = line.toCharArray();
-//                for (int i = 0; i < charArr.length - 1; i++) {
-//                    if (abc.contains(charArr[i]) && charArr[i] == charArr[i + 1]) {
-//                        value++;
-//                        res.put(charArr[i], value);
-//                    } else value = 1;
-//                }
-//            }
-//            int result = 0;
-//            for (Map.Entry<Character, Integer> entry : res.entrySet()) {
-//                System.out.println(entry.getKey() + " " + entry.getValue());
-//            }
-//            System.out.println(result);
+            res.put('a', 1);
+            res.put('b', 1);
+            res.put('c', 1);
+            res.put('d', 1);
+            res.put('e', 1);
+            res.put('f', 1);
+            res.put('g', 1);
+            res.put('h', 1);
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                int value = 1;
+                char[] charArr = line.toCharArray();
+                for (int i = 0; i < charArr.length - 1; i++) {
+                    if (abc.contains(charArr[i]) && charArr[i] == charArr[i + 1] && res.get(charArr[i]) >= value) {
+                        value++;
+                        res.put(charArr[i], value);
+                    } else value = 1;
+                }
+            }
+            int result = 0;
+            for (Map.Entry<Character, Integer> entry : res.entrySet()) {
+                if(entry.getValue() >= result){
+                    result = entry.getValue();
+                }
+            }
+            System.out.println(result);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
