@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Main main = new Main();
         firstTask();
         System.out.println(main.secondTask());
@@ -41,7 +41,7 @@ public class Main {
             sc.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             assert sc != null;
             sc.close();
         }
@@ -124,7 +124,8 @@ public class Main {
         }
         return 0;
     }
-    public static void fillTheMap(Map<Character, Integer> res){
+
+    public static void fillTheMap(Map<Character, Integer> res) {
         res.put('a', 0);
         res.put('b', 0);
         res.put('c', 0);
