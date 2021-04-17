@@ -2,10 +2,9 @@ package labs.t9;
 
 import java.util.*;
 
+
 public class Main {
     public static void main(String[] args) {
-//        firstTask(1,2,3,4);
-        System.out.println(secondTask("абвгд вфыв пар р ошгш гш нз щш"));
     }
 
     public String firstTask(int a, int b, int a1, int b1) {
@@ -20,14 +19,15 @@ public class Main {
         }
     }
 
-    public static String secondTask(String str) {
-        String[] arr = str.split(" ");
-        List<String> strings = new ArrayList<>(Arrays.asList(arr));
-        Collections.sort(strings);
+    public String secondTask(String str) {
+        //sort the string
         StringBuilder result = new StringBuilder();
-        for (String string : strings) {
-            result.append(string).append(" ");
+        String[] arr = str.split(" ");
+        Arrays.sort(arr);
+        for (String s : arr) {
+            result.append(s).append(" ");
         }
-        return result.toString();
+
+        return result.deleteCharAt(result.length() - 1).toString();
     }
 }
