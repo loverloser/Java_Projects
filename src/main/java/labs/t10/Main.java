@@ -88,9 +88,10 @@ public class Main {
             File file = new File("C:\\Java projects\\src\\main\\java\\labs\\t10\\test3.txt");
 
             FileWriter fw = new FileWriter(file);
+            //random for abc which will be in file test3.txt
             Random random = new Random();
             for (int i = 0; i < 1024; i++) {
-                fw.write(abc.get(random.nextInt(8)));
+                fw.write(abc.get(random.nextInt(abc.size() - 1)));
             }
             fw.close();
 

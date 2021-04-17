@@ -20,14 +20,14 @@ public class Main {
         task2(matrix1);
     }
 
-    private static void task1(int[][] matrix){
+    private static void task1(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if(i == j){
+                if (i == j) {
                     continue;
                 }
 
-                if(matrix[i][j] != matrix[j][i]){
+                if (matrix[i][j] != matrix[j][i]) {
                     System.out.println("Матрица не симметрична");
                     return;
                 }
@@ -36,7 +36,7 @@ public class Main {
         System.out.println("Матрица семмитрична");
     }
 
-    private static void task2(double [][] matrix){
+    private static void task2(double[][] matrix) {
         double max = 0;
         for (double[] doubles : matrix) {
             for (double aDouble : doubles) {

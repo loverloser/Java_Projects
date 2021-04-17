@@ -12,8 +12,7 @@ public class Main {
     }
 
 
-
-    private static void firstTask(){
+    private static void firstTask() {
         List<String> months = new ArrayList<>();
         months.add("September");
         months.add("October");
@@ -26,7 +25,7 @@ public class Main {
         System.out.println(newMonthsList);
     }
 
-    private static void secondTask(){
+    private static void secondTask() {
         Map<String, Integer> userPasswords = new HashMap<>();
         userPasswords.put("wqer", 2134565);
         userPasswords.put("yrg", 7678);
