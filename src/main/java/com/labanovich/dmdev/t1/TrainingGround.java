@@ -26,8 +26,8 @@ Enemy.
 определённое количество урона.
     Переопределить метод в подклассах Warrior, Mage и Archer так, чтобы
 каждый герой наносил врагу разное количество урона.
-    
-4. Сделать класс Hero и его метод attackEnemy абстрактными.
+    ----------------------------------------
+4. Сделать класс Hero и его метод attackEnemy абстрактными.----------------
 5. Создать интерфейс Mortal, содержащий метод isAlive().
     Сделать так, чтобы класс Enemy реализовывал интерфейс Mortal. 
     Определить метод isAlive в классе Enemy так, чтобы тот возвращал true,
@@ -45,12 +45,6 @@ Enemy.
  */
 public class TrainingGround {
     public static void main(String[] args) {
-        Enemy enemy = new Enemy(120);
-        Enemy enemy1 = new Enemy(50);
-        Enemy enemy2 = new Enemy(40);
-        Hero h2 = new Archer("Legolas");
-//        h2.attackEnemy(enemy1);
-        Hero h3 = new Warrior("Grey Gerold");
-//        h3.attackEnemy();
+
     }
 }

@@ -1,15 +1,23 @@
 package com.labanovich.dmdev.t1;
 
 public class Archer extends Hero {
-    private static final int DAMAGE = 40;
+    private int damage;
 
-    public Archer(String name) {
-        super(name);
+    public Archer(String name, int damage) {
+        super(name, damage);
     }
 
     @Override
-    public void attackEnemy(Enemy enemy, int DAMAGE) {
-        super.attackEnemy(enemy, DAMAGE);
+    public void attackEnemy(Enemy enemy) {
+        enemy.takeDamage(getDamage());
         System.out.println("Archer " + this.getName() + " аттакует врага");
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

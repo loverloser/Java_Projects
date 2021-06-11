@@ -1,6 +1,6 @@
 package com.labanovich.dmdev.t1;
 
-public class Enemy {
+public class Enemy implements Mortal{
     private int health;
 
     public Enemy(int health) {
@@ -16,7 +16,11 @@ public class Enemy {
     }
 
     public void takeDamage(int damage){
-        this.health -= damage;
+        this.health -= Math.min(damage, health);
     }
 
+    @Override
+    public boolean isAlive() {
+        return health > 0;
+    }
 }
