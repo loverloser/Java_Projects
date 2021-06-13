@@ -10,10 +10,13 @@ public abstract class Hero {
         this.damage = damage;
     }
 
+    public abstract void attackEnemy(Enemy enemy);
+
+    public int getDamage() {
+        return damage;
+    }
+
     public String getName() {
         return this.name;
     }
-
-    public abstract void attackEnemy(Enemy enemy);
-
 }

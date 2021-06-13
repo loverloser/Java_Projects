@@ -1,7 +1,6 @@
 package com.labanovich.dmdev.t1;
 
 public class Warrior extends Hero {
-    private int damage;
     public Warrior(String name, int damage) {
         super(name, damage);
     }
@@ -13,6 +12,6 @@ public class Warrior extends Hero {
     }
 
     public int getDamage() {
-        return damage;
+        return super.getDamage();
     }
 }
