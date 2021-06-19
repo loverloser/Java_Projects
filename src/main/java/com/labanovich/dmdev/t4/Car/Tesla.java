@@ -1,6 +1,6 @@
 package com.labanovich.dmdev.t4.Car;
 
-public class Tesla extends Car{
+public class Tesla extends Car {
     public Tesla(String mark, String model, int year, String color) {
         super(mark, model, year, color);
     }
