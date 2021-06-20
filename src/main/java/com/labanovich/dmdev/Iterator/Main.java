@@ -6,8 +6,7 @@ import java.util.ListIterator;
 public class Main {
     private static final int TARGET_LENGTH = 4;
     private static final String TARGET_VALUE = "****";
-    public static void main(String[] args) {
-
+    public static void main(String[] args){
     }
 
     public static void markLength4(List<String> list) {
